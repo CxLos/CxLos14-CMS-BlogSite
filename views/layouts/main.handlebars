@@ -6,19 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CxLos14-Blog-Site</title>
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="./css/output.css">
 </head>
 
-<body>
-  <header class="">
-      <h1>CxLos14 Blog Site</h1>
+<body class="bg-pink-100">
+  
+  <div>
+    <header class="bg-sky-300">
+      <span role="img" aria-label="alien-gamer">📖</span> 
+          <a class="hover:text-slate-600" href="/">CxLos14 Blog Site</a>
+    </header>
+  </div>
 
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
+  {{!-- <div class="" id="navigation">
+     <nav class="text-center">
+      <div class="text-2xl">
+        <a class="log-in-btn bg-yellow-100 border-orange-600" href="/" id="hbtn">Home</a>
+      </div>
+        {{#if logged_in}}
+        <div>
+          <button class="btn" id="logout">logout</button>
+        </div>
+        {{else}}
+        <a class="log-in-btn bg-orange-300 border-blue-400" href="/login">Login</a>
+        {{/if}}
     </nav>
-    {{/if}}
-  </header>
-
+  </div>  --}}
+   
   <main class="">
     {{{ body }}}
   </main>

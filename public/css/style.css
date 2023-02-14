@@ -1,25 +1,104 @@
-h1 {
-    font-size: 80px;
-    text-align: center;
-    font-family: sans-serif;
-}
-
-h2 {
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 30px;
-}
+/* body {
+    background-color: rgb(255, 255, 196);
+} */
 
 /* nav {
-    background-color: rgb(255, 132, 192);
+    background-color: rgb(37, 106, 255);
+    padding: 10px 0px 10px 0px;
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
 } */
 
 header {
-    background-color: rgb(255, 165, 208);
-    padding: 2px 0px 2px 0px;
-    margin: -10px -10px -10px -10px;
+    text-align: center;
+    font-size: 50px;
+    border-bottom: solid 3px;
+    padding: 15px;
 }
 
-body {
-    background-color: rgb(255, 210, 210);
+li {
+    color: white;
+    font-size: 20px;
 }
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+li:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    align-self: center;
+    /* align-content: center; */
+}
+
+.boxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0px 30px 0px 30px;
+    border-radius: 10px;
+    margin-top: 150px;
+}
+
+.insert {
+    margin: 15px 0px 15px 10px;
+    padding: 0px 0px 0px 15px;
+    border-radius: 10px;
+}
+
+.lbtn {
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid;
+    font-size: 70%;
+    /* padding: 10px; */
+    margin: 10px;
+    width: 30%;
+    height: 4vh;
+}
+
+.lbtn {
+    border-radius: 5px;
+    background-color: red;
+    border: 2px solid;
+    font-size: 70%;
+    /* padding: 10px; */
+    margin: 10px;
+    width: 30%;
+    height: 4vh;
+}
+
+.lbtn:hover {
+    background-color: rgb(129, 183, 255);
+    cursor: pointer;
+    transform: translateY(3px);
+}
+
+.log-in-btn {
+    padding: 10px;
+    border: 3px solid;
+    border-radius: 5px;
+    position: absolute;
+    top: 150px;
+    margin: 0px 0px 600px 0px;
+}
+
+.log-in-btn:hover {
+    transform: translateY(3px);
+}
+
+/* 
+.btn:active {
+    transform: translateY(2px);
+} */
