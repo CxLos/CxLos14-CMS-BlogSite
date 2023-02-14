@@ -5,7 +5,6 @@ const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
-
 const sequelize = require('./config/connection');
 
 // connects session to sequelize
@@ -19,7 +18,12 @@ const hbs = exphbs.create({ helpers });
 // configure and link a session object with the sequelize store
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({

@@ -17,7 +17,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -33,7 +33,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [8],
+        len: [4],
       },
     },
   },
@@ -44,7 +44,7 @@ User.init(
         return newUserData;
       },
     },
-    
+
     sequelize,
     timestamps: false,
     freezeTableName: true,

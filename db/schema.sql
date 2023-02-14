@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS cxlos14_blog_db;
+DROP DATABASE IF EXISTS cxlos14_blog;
 
 CREATE DATABASE cxlos14_blog;
 

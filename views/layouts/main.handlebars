@@ -13,9 +13,21 @@
   
   <div>
     <header class="bg-sky-300">
-      <span role="img" aria-label="alien-gamer">📖</span> 
-          <a class="hover:text-slate-600" href="/">CxLos14 Blog Site</a>
+      <h1>
+        <span role="img" aria-label="book-emoji">📖</span> 
+        <a class="hover:text-slate-600" href="/">CxLos14 Blog Site</a>
+      </h1>
+      
+      <nav class="text-center text-base">
+        {{#if logged_in}}
+        <a class="hover:text-slate-600" href="/profile">Profile</a> |
+        <a class="hover:text-slate-600" id="logout" href="">Log Out</a>
+        {{else}}
+        <a class="log-in-btn bg-red-400 border-indigo-400" href="/login">login</a>
+        {{/if}}
+      </nav>
     </header>
+
   </div>
 
   {{!-- <div class="" id="navigation">
