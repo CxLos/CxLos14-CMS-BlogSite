@@ -12,7 +12,7 @@
 <body class="bg-pink-100">
   
   <div>
-    <header class="bg-sky-300">
+    <header class="bg-sky-300 border-b-2 border-black text-center text-4xl p-5">
       <h1>
         <span role="img" aria-label="book-emoji">📖</span> 
         <a class="hover:text-slate-600" href="/">CxLos14 Blog Site</a>
@@ -20,30 +20,17 @@
       
       <nav class="text-center text-base">
         {{#if logged_in}}
-        <a class="hover:text-slate-600" href="/profile">Profile</a> |
-        <a class="hover:text-slate-600" id="logout" href="">Log Out</a>
+        <a class="hover:text-slate-500" href="/profile">Profile</a> |
+                <a class="hover:text-slate-500" id="" href="/blogs">New Blog</a> |
+        <a class="hover:text-slate-500" id="logout" href="">Logout</a> 
+
         {{else}}
-        <a class="log-in-btn bg-red-400 border-indigo-400" href="/login">login</a>
+        <a class="log-in-btn bg-pink-300 border-indigo-300 hover:bg-pink-200" href="/login">login</a>
         {{/if}}
       </nav>
     </header>
-
   </div>
 
-  {{!-- <div class="" id="navigation">
-     <nav class="text-center">
-      <div class="text-2xl">
-        <a class="log-in-btn bg-yellow-100 border-orange-600" href="/" id="hbtn">Home</a>
-      </div>
-        {{#if logged_in}}
-        <div>
-          <button class="btn" id="logout">logout</button>
-        </div>
-        {{else}}
-        <a class="log-in-btn bg-orange-300 border-blue-400" href="/login">Login</a>
-        {{/if}}
-    </nav>
-  </div>  --}}
    
   <main class="">
     {{{ body }}}

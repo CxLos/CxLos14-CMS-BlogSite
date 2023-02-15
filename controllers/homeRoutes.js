@@ -1,6 +1,6 @@
 //
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
 // getting w/o being logged in
@@ -22,17 +22,46 @@ router.get("/profile", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] }
-      // include: [{ model: Character }],
+      // include: [{ model: Blog }],
     });
 
     const user = userData.get({ plain: true });
 
     res.render("profile", {
-      ...user,
+      user,
       logged_in: true,
     });
   } catch (err) {
     console.log("Issue fetching profile");
+    res.status(500).json(err);
+  }
+});
+
+router.get("/blogs", withAuth, async (req, res) => {
+
+  res.render('blogs', { 
+    logged_in: req.session.logged_in
+  });
+});
+
+router.get('/blogs/:id', async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+
+    res.render('blogs', {
+      logged_in: req.session.logged_in
+    });
+    console.log(blog);
+  } catch (err) {
     res.status(500).json(err);
   }
 });
