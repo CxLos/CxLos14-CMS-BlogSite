@@ -5,28 +5,29 @@
 
 <section class="flex">
 
-    <div class="border-4 rounded-lg border-indigo-400 bg-red-400 p-5 mt-12 text-xl">
+    <div class="border-4 rounded-lg border-indigo-300 bg-pink-300 p-5 mt-12 text-xl">
         <div>
-            <h2 class="text-center text-3xl pb-6">Create New Character!</h2>
+            <h2 class="text-center text-3xl pb-6">Post a New Blog!</h2>
         </div>
 
         <div>
-            <form id="character-create-form">
-                <div>
+            <form id="new-blog-form">
+                <div class="p-4">
                     <label for="height">Blog Title:</label>
-                    <input type="text" class="insert2 p-1" id="char-name" placeholder="Cool name">
+                    <input type="text" class="insert2 p-1 rounded-md w-96" id="blog-title" placeholder="Enter Title">
                 </div>
 
-                <div>
-                    <label>What are your thoughts?:</label>
-                    <input type="input" class="insert2 p-1" id="char-age" placeholder="Age">
+                <div class="p-4">
+                    <label class="pb-4">What are your thoughts?</label>
+                    <br class="p-4">
+                    <input type="input" class="insert3 tex-center p-1 rounded-md  h-96" id="blog-body" placeholder="Write here!">
                 </div>
-                <div class="flex">
-                    <button class="lbtn bg-green-300" id="" type="submit" for="submit">Post!</button>
+                <div class="text-center text-sm">
+                    <button class="border-black border-2 rounded-md p-1 px-2 bg-sky-300 hover:bg-sky-200 transform" id="" type="submit" for="submit">Post!</button>
                 </div>
             </form>
         </div>
 </div>
 </section>
 
-<script src="./js/blog.js"></script>
+<script src="./js/blogForm.js"></script>

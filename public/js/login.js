@@ -1,16 +1,13 @@
 
 // login
 const logIn = async (event) => {
-
   event.preventDefault();
 
-  // Gather the data from the form elemnts on the page
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
+  const email = document.getElementById('email-login').value.trim();
+  const password = document.getElementById('password-login').value.trim();
 
   if (email && password) {
 
-    //send e-mail and password to server
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -29,9 +26,9 @@ const logIn = async (event) => {
 const signingUp = async (event) => {
   event.preventDefault();
 
-  const username = document.querySelector('#user-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
+  const username = document.getElementById('user-signup').value.trim();
+  const email = document.getElementById('email-signup').value.trim();
+  const password = document.getElementById('password-signup').value.trim();
 
   if (username && email && password) {
     const response = await fetch('/api/users', {
@@ -49,5 +46,5 @@ const signingUp = async (event) => {
 };
 
 // Event listener
-document.querySelector('#login-form').addEventListener('submit', logIn);
-document.querySelector('#signup-form').addEventListener('submit', signingUp);
+document.getElementById('login-form').addEventListener('submit', logIn);
+document.getElementById('signup-form').addEventListener('submit', signingUp);

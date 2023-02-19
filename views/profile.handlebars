@@ -1,6 +1,37 @@
-{{!--  --}}
-<div class="">
+
+<section>
+
   <div class="">
-    <h2 class="text-center text-4xl welcome pt-10" >Welcome, {{username}}!</h2>
+    <div class="">
+      <h2 class="text-center text-4xl welcome pt-10" >Welcome, {{user}} !</h2>
+    </div>
   </div>
+
+  {{#if blogs.length}}
+  <div class="bg-pink-300 border-4 border-slate-800 rounded-md mt-14 ml-14 boxes2" id="blog-list">
+
+    <div class="border-b-4 border-slate-800 p-4" id="blog-list">
+      <h1 class="text-xl">My Characters:</h1>
+    </div>
+
+    {{#each blogs as |blog|}}
+    <div class="pl-4 pt-4 border-b-4 border-slate-800">
+
+      <div class="text-xl mb-4 hover:text-slate-500 ">
+        <h4><a href="/blogs/{{blog.id}}">{{blog.title}}</a></h4>
+      </div>
+
+      <div class=" text-xs my-4">
+        <button class="border-indigo-300 border-2 rounded-md p-1 px-2 bg-sky-300 hover:bg-sky-200 transform" data-id="{{blog.id}}">Delete</button>
+      </div>
+      
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+</section>
+
+<script src="./js/delBlog.js"></script>
 </div>
+</section> 

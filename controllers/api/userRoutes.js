@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
     const userData = await User.create(req.body);
     req.session.save(() => {
       req.session.user_id = userData.id;
-      // req.session.username = userData.username;
+      req.session.username = userData.username;
       req.session.loggedIn = true;
       res.status(200).json(userData);
     });
@@ -21,9 +21,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
 
-    // finding user that matches with the email address entered
     const userData = await User.findOne({ where: { email: req.body.email } });
-
     if (!userData) {
       res
         .status(400)
@@ -31,9 +29,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // verifying posted password matches password stored in the db.
     const validPassword = await userData.checkPassword(req.body.password);
-
     if (!validPassword) {
       res
         .status(400)
@@ -41,7 +37,6 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // create session variables based on the logged in user.
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -54,15 +49,17 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/logout', (req, res) => {
-  if (req.session.logged_in) {
-
-    // this removes the session variables when they log out
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
+router.post('/logout', async (req, res) => {
+  try{
+    if (req.session.logged_in) {
+      const userData = await req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

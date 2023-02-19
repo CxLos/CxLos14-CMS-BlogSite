@@ -45,6 +45,18 @@ li:hover {
     border-radius: 10px;
 }
 
+.insert3 {
+    text-align: center;
+    width: 100%;
+    margin: 15px 0px 15px 0px;
+}
+
+.insert2 {
+    text-align: center;
+    width: 90%;
+    margin: 0px 0px 0px 15px;
+}
+
 .lbtn {
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
@@ -83,6 +95,10 @@ li:hover {
 }
 
 .log-in-btn:hover {
+    transform: translateY(3px);
+}
+
+.transform:hover {
     transform: translateY(3px);
 }
 
