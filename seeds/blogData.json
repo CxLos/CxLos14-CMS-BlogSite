@@ -1,4 +1,6 @@
-{
-    "title": "first blog",
-    "body": "Description of first blog"
-}
+[
+    {
+        "title": "first blog",
+        "body": "Description of first blog"
+    }
+]

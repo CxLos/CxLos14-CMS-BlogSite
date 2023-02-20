@@ -33,7 +33,7 @@ Repository
 [](https://github.com/CxLos/CxLos) 
 
 Image
-![](./assets/images/Screenshot-01.png)
+![](./assets/images/Screenshot-192357.png)
 
 ## Badges
 

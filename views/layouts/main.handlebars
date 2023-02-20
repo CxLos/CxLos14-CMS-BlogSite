@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CxLos14-Blog-Site</title>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="./css/output.css">
+  <link rel="stylesheet" href="/css/output.css">
 </head>
 
 <body class="bg-pink-100">
@@ -21,9 +21,8 @@
       <nav class="text-center text-base">
         {{#if logged_in}}
         <a class="hover:text-slate-500" href="/profile">Profile</a> |
-                <a class="hover:text-slate-500" id="" href="/blogs">New Blog</a> |
+                <a class="hover:text-slate-500" id="" href="/newblog">New Blog</a> |
         <a class="hover:text-slate-500" id="logout" href="">Logout</a> 
-
         {{else}}
         <a class="log-in-btn bg-pink-300 border-indigo-300 hover:bg-pink-200" href="/login">login</a>
         {{/if}}

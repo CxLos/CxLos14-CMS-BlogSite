@@ -37,34 +37,52 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 });
 
-router.get("/blogs", withAuth, async (req, res) => {
+router.get("/newblog", withAuth, async (req, res) => {
 
-  res.render('blogs', { 
+  res.render('new-blog', { 
     logged_in: req.session.logged_in
   });
 });
 
-router.get('/blogs/:id', async (req, res) => {
-  try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
+//
+router.get("/blogs/:id", async (req, res) => {
 
+  try{
+    const blogData = await Blog.findByPk(req.params.id);
     const blog = blogData.get({ plain: true });
-
-    res.render('blogs', {
+  
+    res.render("blog-view", {
+      ...blog,
       logged_in: req.session.logged_in
     });
-    console.log(blog);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// get route including model user
+// router.get('/blogs/:id', async (req, res) => {
+//   try {
+//     const blogData = await Blog.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
+
+//     const blog = blogData.get({ plain: true });
+
+//     res.render('blog-view', {
+//       ...blog,
+//       logged_in: req.session.logged_in
+//     });
+//     console.log(blog);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // prevent not-logged in users from viewing the page
 // router.get('/', withAuth, async (req, res) => {
