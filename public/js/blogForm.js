@@ -16,8 +16,8 @@ const newBlogPost = async (event) => {
 
     if (response.ok) {
       let result = await response.json();
-      // document.location.replace(`/blogs/${result.id}`);
-      document.location.replace(`/profile`);
+      document.location.replace(`/blogs/${result.id}`);
+      // document.location.replace(`/profile`);
     } else {
       alert('Failed to post blog');
     }

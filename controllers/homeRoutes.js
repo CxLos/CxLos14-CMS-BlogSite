@@ -21,14 +21,14 @@ router.get("/profile", withAuth, async (req, res) => {
 
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] }
-      // include: [{ model: Blog }],
+      attributes: { exclude: ["password"]},
+      include: [{ model: Blog }],
     });
 
     const user = userData.get({ plain: true });
 
     res.render("profile", {
-      user,
+      ...user,
       logged_in: true,
     });
   } catch (err) {
@@ -39,12 +39,46 @@ router.get("/profile", withAuth, async (req, res) => {
 
 router.get("/newblog", withAuth, async (req, res) => {
 
-  res.render('new-blog', { 
-    logged_in: req.session.logged_in
-  });
+  try{
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"]},
+      include: [{ model: Blog, User }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('new-blog', {
+      ...user,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log("Issue fetching profile");
+    res.status(500).json(err);
+  }
+
 });
 
-//
+// router.get("/updateblog", withAuth, async (req, res) => {
+
+//   try {
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ["password"]},
+//       include: [{ model: Blog }],
+//     });
+
+//     const user = userData.get({ plain: true });
+
+//     res.render("update-blog", {
+//       ...user,
+//       logged_in: true,
+//     });
+//   } catch (err) {
+//     console.log("Issue fetching profile");
+//     res.status(500).json(err);
+//   }
+// });
+
+// Get blogs view
 router.get("/blogs/:id", async (req, res) => {
 
   try{
@@ -60,60 +94,20 @@ router.get("/blogs/:id", async (req, res) => {
   }
 });
 
-// get route including model user
-// router.get('/blogs/:id', async (req, res) => {
-//   try {
-//     const blogData = await Blog.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+// update blog routes
+router.get("/blogsu/:id", async (req, res) => {
 
-//     const blog = blogData.get({ plain: true });
-
-//     res.render('blog-view', {
-//       ...blog,
-//       logged_in: req.session.logged_in
-//     });
-//     console.log(blog);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// prevent not-logged in users from viewing the page
-// router.get('/', withAuth, async (req, res) => {
-//   try {
-//     const userData = await User.findAll({
-//       attributes: { exclude: ['password'] },
-//       order: [['name', 'ASC']],
-//     });
-
-//     const users = userData.map((project) => project.get({ plain: true }));
-
-//     res.render('homepage', {
-//       users,
-
-//       // pass loggedin flag to the template
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// router.get('/login', (req, res) => {
-
-//   // if session exists, redirect request to homepage.
-//   if (req.session.logged_in) {
-//     res.redirect('/');
-//     return;
-//   }
-
-//   res.render('login');
-// });
+  try{
+    const blogData = await Blog.findByPk(req.params.id);
+    const blog = blogData.get({ plain: true });
+  
+    res.render("update-blog", {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

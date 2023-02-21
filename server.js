@@ -12,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
+// just adds like cool functionality to handlebars
 const hbs = exphbs.create({});
 
 const sess = {

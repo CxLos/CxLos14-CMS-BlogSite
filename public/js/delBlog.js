@@ -14,4 +14,4 @@ const delBlog = async (event) => {
     }
   };
 
-  document.getElementById('blog-list').addEventListener('click', delBlog);
+document.getElementById('blog-list').addEventListener('click', delBlog);

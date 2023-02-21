@@ -1,6 +1,18 @@
 
-  <header>
+ <section>
+
+  <header class="p-8">
     <h1 class="text-center text-2xl">
-      Welcome to The CxLos14 Blog Site!
+    Welcome to The CxLos14 Blog Site!
     </h1>
   </header>
+
+  <nav class="text-center text-base m-8">
+    {{#if logged_in}}
+<p></p>
+    {{else}}
+    <a class="log-in-btn bg-pink-300 border-indigo-300 hover:bg-pink-200 my-4" href="/login">login</a>
+    {{/if}}
+  </nav>
+ </section>
+ 

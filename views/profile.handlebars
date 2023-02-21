@@ -8,22 +8,31 @@
   </div>
 
   {{#if blogs.length}}
-  <div class="bg-pink-300 border-4 border-slate-800 rounded-md mt-14 ml-14 boxes2" id="blog-list">
+  <div class="bg-pink-300 border-4 border-slate-800 rounded-md mt-14 ml-14 boxes2 w-80" id="blog-list">
 
-    <div class="border-b-4 border-slate-800 p-4" id="blog-list">
-      <h1 class="text-xl">My Characters:</h1>
+    <div class="border-b-4 border-slate-800 p-4 text-center" id="blog-list">
+      <h1 class="text-xl">My Blogs:</h1>
     </div>
 
     {{#each blogs as |blog|}}
-    <div class="pl-4 pt-4 border-b-4 border-slate-800">
+    <div class=" border-b-4 border-slate-800">
 
-      <div class="text-xl mb-4 hover:text-slate-500 ">
+      <div class="text-xl mb-4 hover:text-slate-500 text-center bg-white p-2">
         <h4><a href="/blogs/{{blog.id}}">{{blog.title}}</a></h4>
       </div>
 
-      <div class=" text-xs my-4">
-        <button class="border-indigo-300 border-2 rounded-md p-1 px-2 bg-sky-300 hover:bg-sky-200 transform" data-id="{{blog.id}}">Delete</button>
+      <div class="flex">
+        <div class=" text-xs my-4">
+          <button class="border-indigo-400 border-2 rounded-md p-1 px-2 bg-sky-300 hover:bg-sky-200 transform" data-id="{{blog.id}}">Delete</button>
+        </div>
+
+        <div class=" text-xs my-4">
+          <a href="/blogsu/{{blog.id}}">
+          <p class="border-indigo-400 border-2 rounded-md p-1 px-2 bg-sky-300 hover:bg-sky-200 transform" >Update</p></a>
+          
+        </div>
       </div>
+
       
     </div>
     {{/each}}
