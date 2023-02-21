@@ -13,7 +13,7 @@ router.put('/:id', withAuth, async (req, res) => {
         },
       });
   
-      if (!blogData) {
+      if (!blogData[0]) {
         res.status(404).json({ message: 'No blog found with this id!' });
         return;
       }
