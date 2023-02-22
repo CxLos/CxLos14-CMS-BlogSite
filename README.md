@@ -2,12 +2,9 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+```
+The motivation behind building this was to fully integrate everything we have learned in class so far to build my first full stack application. I made this application so that users can sign in and create an account for a blog site where they can share and post their thoughts. This app isn't so much a problem solver like some of my other apps, but more so a fun interactive social media-like site. Building this project, I learned the importance of having all of your routes set up correctly as it can easily get very confusing and make your site crash. I learned how to integrate all aspects of the MVC model to make a fully functional site. I also learned how tricky it is deploying to Heroku and figured out that file structure is case sensitive so it is very important to make sure everything matches 100%.
+```
 
 ## Table of Contents 
 	
@@ -26,14 +23,10 @@ Provide a short description explaining the what, why, and how of your project. U
 
 ## Usage
 
-application
-[](https://cxlos.github.io/Cxlos/)
 
-Repository
-[](https://github.com/CxLos/CxLos) 
+[CxLos14 Blog Site](https://cxlos14-cms-blogsite.herokuapp.com)
 
-Image
-![](./assets/images/Screenshot-192357.png)
+![Screenshot](./assets/images/Screenshot-192357.png)
 
 ## Badges
 
